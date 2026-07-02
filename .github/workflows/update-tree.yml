@@ -70,7 +70,7 @@ jobs:
          
          # 统一使用 UTF8 无BOM 读取，避免编码错乱
          $treeText = Get-Content $treeFile -Raw -Encoding utf8
-         $readmePath = "README-CN.md"
+         $readmePath = "README_CN.md"
          $originReadme = Get-Content $readmePath -Raw -Encoding utf8
          
          # 改进正则：显式单行模式，分组清晰
@@ -78,7 +78,7 @@ jobs:
          
          # 校验标记
          if (-not ($originReadme -match $regex)) {
-             Write-Error "❌ README-CN.md 未找到 <!-- TREE_START --> / <!-- TREE_END --> 成对标记，终止执行"
+             Write-Error "❌ README_CN.md 未找到 <!-- TREE_START --> / <!-- TREE_END --> 成对标记，终止执行"
              exit 1
          }
 
@@ -89,7 +89,7 @@ jobs:
          # 写入 UTF8 无BOM
          [System.IO.File]::WriteAllText($readmePath, $newReadme, [System.Text.Encoding]::UTF8)
          Remove-Item $treeFile -Force
-         Write-Host "✅ README-CN 目录树区块已更新完成"
+         Write-Host "✅ README_CN 目录树区块已更新完成"
       - name: 自动提交变更
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
