@@ -9,10 +9,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+/**
+ * @file Server.cpp
+ * @brief 服务器主程序入口，处理命令行参数并启动服务器。
+ * @author Scriptforge
+ * @date 2026/7/2
+ */
+
 import Version;
+import Scriptforge.Argv;
 import Scriptforge.Pch;
 
-int main() {
+int main(int argc, char* argv[]) {
+	std::cout << Version::versionInfo.getCopyright();
+	Scriptforge::Argv::ArgvCli<Scriptforge::Argv::Hash::FNV_1a_32> argvCli(argc, argv);
 
 	return 0;
 }

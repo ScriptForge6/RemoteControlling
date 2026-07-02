@@ -8,6 +8,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
+/**
+ * @file Version.ixx
+ * @brief 定义了 Version 模块，包含版本信息。
+ * @author Scriptforge
+ * @date 2026/7/2
+ */
+
 export module Version;
 
 import Scriptforge.Version;
@@ -15,12 +23,12 @@ import Scriptforge.Pch;
 
 namespace Version {
 	using namespace std::chrono_literals;
-	export 
+	export
 		Scriptforge::Version::VersionInfo versionInfo{
 		"Remote Controlling Server",
 		"0.0.1",
 		"Scriptforge",
 		"Apache License 2.0",
 		2026y
-	}
+	};
 }
